@@ -5,7 +5,7 @@ import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import welcome from "conwelcome";
 import createDirectoryContents from './createDirectoryContents.js';
-
+import installDependencies from './installDependencies.js';
 const CURR_DIR = process.cwd();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -25,7 +25,7 @@ welcome({
 	color: `#000000`,
 	bold: true,
 	clear: true,
-	version: `1.0.0`
+	version: `1.1.1`
 });
 
 const QUESTIONS = [
@@ -67,6 +67,7 @@ inquirer.prompt(QUESTIONS).then(answers => {
     // fs.mkdirSync(projectPath);
     createDirectoryContents(templatePath, projectName);
     console.log(`\n✅ Project ${projectName === '.' ? 'created in current directory' : projectName} successfully!`);
+    installDependencies(projectPath);
   } catch (err) {
     console.error('Error creating project:', err);
     process.exit(1);
