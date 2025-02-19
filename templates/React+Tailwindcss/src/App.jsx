@@ -43,7 +43,7 @@ function App() {
       {/* Footer */}
       <p className="mt-6 text-gray-600 dark:text-gray-300 text-center transition-all">
         Click on the Vite, React, and Tailwind logos to learn more.
-        create by <a href="https://github.com/sumangal44/blueprint-cli" className="text-blue-800 dark:text-blue-400 hover:underline"> Blueprint CLI</a>
+        create by <a href="https://github.com/Sumangal44/SkeleCLI.git" className="text-blue-800 dark:text-blue-400 hover:underline"> SkeleCLI</a>
       </p>
     </div>
   );
