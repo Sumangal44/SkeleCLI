@@ -1,0 +1,53 @@
+{
+  "name": "skelecli",
+  "version": "1.0.0",
+  "description": "A simple CLI to generate a blueprint for a new project",
+  "main": "skelecli.js",
+  "type": "module",
+  "bin": "./skelecli.js",
+  "scripts": {
+    "start": "node skelecli.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "skelecli",
+    "generator",
+    "node",
+    "javascript",
+    "typescript",
+    "react",
+    "react-ts",
+    "nextjs",
+    "next-shadcnui",
+    "astro",
+    "astro-ts",
+    "astro-shadcnui",
+    "vanilla",
+    "vanilla-ts",
+    "vanilla-shadcnui",
+    "svelte",
+    "svelte-ts",
+    "svelte-shadcnui",
+    "vue",
+    "vue-ts",
+    "vue-shadcnui",
+    "angular-shadcnui",
+    "sveltekit",
+    "sveltekit-ts",
+    "sveltekit-shadcnui",
+    "react-shadcnui",
+    "nextjs-shadcnui",
+    "astro-shadcnui",
+    "vue-shadcnui",
+    "vite"
+
+  ],
+  "author": "sumangal karan",
+  "license": "MIT",
+  "packageManager": "pnpm@10.4.1",
+  "dependencies": {
+    "conwelcome": "^0.1.5",
+    "inquirer": "^12.4.2",
+    "prettier": "^3.5.1"
+  }
+}
