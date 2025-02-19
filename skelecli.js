@@ -18,10 +18,10 @@ const getTemplateChoices = () => {
   }
 };
 welcome({
-	title: `Blueprint CLI`,
+	title: `SkeleCLI`,
 	tagLine: `by sumangal karan`,
-	description: `Blueprint CLI is  the best CLI tool for creating new projects!`,
-	bgColor: `#2b28de`,
+	description: `SkeleCLI is  the best CLI tool for creating new projects!`,
+	bgColor: `#fadc5e`,
 	color: `#000000`,
 	bold: true,
 	clear: true,
