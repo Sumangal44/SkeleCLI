@@ -1,5 +1,3 @@
-
-
 # skelecli
 
 A simple CLI to generate a Template  for a new project
@@ -13,19 +11,22 @@ skelecli
 ## Installation
 
 ```bash
+npx skelecli
+```
+## global installation 
+
+```bash
 npm install -g skelecli
 ```
 
 ## Features
 
-- react template
-- react-ts template
-
+- react+Tailwind  template
+- 
 ## License
 [MIT](./LICENSE)
 
 
 
 ## Author
-
 - [sumangal44](https://github.com/sumangal44)
