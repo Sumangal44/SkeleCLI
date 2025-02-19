@@ -50,7 +50,7 @@ const displayWelcomeMessage = () => {
     color: '#000000',
     bold: true,
     clear: true,
-    version: `v${CURRENT_VERSION}`,
+    version: `${CURRENT_VERSION}`,
   });
 };
 
