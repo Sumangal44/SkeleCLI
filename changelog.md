@@ -1,3 +1,10 @@
+#### v2.0.0
+- What's Changed
+- Improve error handling for API requests by @Sumangal44 in #6
+- Full Changelog: v1.2.3...v2.0.0
+#### v1.2.3
+- What's Changed
+- Full Changelog: v1.2.2...v1.2.3
 #### v1.2.2
 - What's Changed
 - Improve error handling for API requests by @Sumangal44 in #4
