@@ -6,9 +6,17 @@ import { fileURLToPath } from 'url';
 import welcome from "conwelcome";
 import createDirectoryContents from './createDirectoryContents.js';
 import installDependencies from './installDependencies.js';
+import checkForUpdates from './checkUpdates.js';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const packageJson = require('./package.json');
+const CURRENT_VERSION = packageJson.version;
+const PACKAGE_NAME = packageJson.name;
 const CURR_DIR = process.cwd();
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+checkForUpdates();
 const getTemplateChoices = () => {
   try {
     return fs.readdirSync(path.join(__dirname, 'templates'));
@@ -18,14 +26,14 @@ const getTemplateChoices = () => {
   }
 };
 welcome({
-	title: `SkeleCLI`,
+	title: `${PACKAGE_NAME}`,
 	tagLine: `by sumangal karan`,
-	description: `SkeleCLI is  the best CLI tool for creating new projects!`,
+	description: `❤️🚀👍SkeleCLI is  the best CLI tool for creating new projects!👨‍🏭✅🚀`,
 	bgColor: `#fadc5e`,
 	color: `#000000`,
 	bold: true,
 	clear: true,
-	version: `1.1.1`
+	version: `v${CURRENT_VERSION}`,
 });
 
 const QUESTIONS = [
@@ -47,7 +55,6 @@ const QUESTIONS = [
 inquirer.prompt(QUESTIONS).then(answers => {
   const { projectChoice, projectName } = answers;
   const templatePath = path.join(__dirname, 'templates', projectChoice);
-  // const projectPath = path.join(CURR_DIR, projectName);
   const projectPath = projectName === '.' ? CURR_DIR : path.join(CURR_DIR, projectName);
 
   if (!fs.existsSync(templatePath)) {
@@ -64,7 +71,6 @@ inquirer.prompt(QUESTIONS).then(answers => {
       fs.mkdirSync(projectPath);
     }
 
-    // fs.mkdirSync(projectPath);
     createDirectoryContents(templatePath, projectName);
     console.log(`\n✅ Project ${projectName === '.' ? 'created in current directory' : projectName} successfully!`);
     installDependencies(projectPath);
