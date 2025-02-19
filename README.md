@@ -20,13 +20,11 @@ npm install -g skelecli
 ```
 
 ## Features
-
 - react+Tailwind  template
-- 
+- react+Tailwindcss+Typescript template
+
 ## License
-[MIT](./LICENSE)
-
-
+- [MIT](./LICENSE)
 
 ## Author
 - [sumangal44](https://github.com/sumangal44)
