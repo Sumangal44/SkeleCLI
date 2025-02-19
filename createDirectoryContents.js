@@ -1,34 +1,34 @@
-import * as fs from 'fs';
+import fs from 'fs';
 import path from 'path';
 
-const CURR_DIR = process.cwd();
+/**
+ * Copies template files to the target project directory.
+ * @param {string} templatePath - Path to the template directory.
+ * @param {string} projectPath - Path to the project directory.
+ */
+const createDirectoryContents = (templatePath, projectPath) => {
+  if (!fs.existsSync(templatePath)) {
+    console.error(`❌ Template path not found: ${templatePath}`);
+    return;
+  }
 
-const createDirectoryContents = (templatePath, newProjectPath) => {
   const filesToCreate = fs.readdirSync(templatePath);
 
   filesToCreate.forEach(file => {
     const origFilePath = path.join(templatePath, file);
+    const targetFilePath = path.join(projectPath, file);
 
-    try {
-      const stats = fs.statSync(origFilePath);
-
-      if (stats.isFile()) {
-        let contents = fs.readFileSync(origFilePath, 'utf8');
-
-        let writeFileName = file === '.npmignore' ? '.gitignore' : file;
-        const writePath = path.join(CURR_DIR, newProjectPath, writeFileName);
-
-        fs.writeFileSync(writePath, contents, 'utf8');
-      } else if (stats.isDirectory()) {
-        const newDirPath = path.join(CURR_DIR, newProjectPath, file);
-        if (!fs.existsSync(newDirPath)) {
-          fs.mkdirSync(newDirPath, { recursive: true });
-        }
-
-        createDirectoryContents(origFilePath, path.join(newProjectPath, file));
+    if (fs.statSync(origFilePath).isDirectory()) {
+      if (!fs.existsSync(targetFilePath)) {
+        fs.mkdirSync(targetFilePath, { recursive: true });
       }
-    } catch (err) {
-      console.error(`Error processing file "${file}": ${err.message}`);
+      createDirectoryContents(origFilePath, targetFilePath);
+    } else {
+      try {
+        fs.copyFileSync(origFilePath, targetFilePath);
+      } catch (err) {
+        console.error(`❌ Error processing "${file}":`, err.message);
+      }
     }
   });
 };
