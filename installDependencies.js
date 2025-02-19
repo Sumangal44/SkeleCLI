@@ -1,30 +1,36 @@
 import { execSync } from 'child_process';
 
+/**
+ * Installs dependencies in the given project path using the best available package manager.
+ * @param {string} projectPath - The directory where dependencies should be installed.
+ */
 export default function installDependencies(projectPath) {
+  const packageManagers = ['pnpm', 'npm', 'yarn', 'bun'];
+
   try {
-    console.log('Installing dependencies...');
-    if (commandExists('pnpm')) {
-      console.log('Using pnpm to install dependencies...');
-      execSync('pnpm install', { stdio: 'inherit', cwd: projectPath });
-    } else if (commandExists('npm')) {
-      console.log('pnpm not found, using npm instead...');
-      execSync('npm install', { stdio: 'inherit', cwd: projectPath });
-    } else if (commandExists('yarn')) {
-      console.log('pnpm and npm not found, using yarn instead...');
-      execSync('yarn install', { stdio: 'inherit', cwd: projectPath });
-    } else if (commandExists('bun')) {
-      console.log('pnpm, npm, and yarn not found, using bun instead...');
-      execSync('bun install', { stdio: 'inherit', cwd: projectPath });
-    } else {
-      throw new Error('No package manager found. Please install pnpm, npm, yarn, or bun.');
+    console.info('📦 Installing dependencies...');
+
+    const availableManager = packageManagers.find(cmd => commandExists(cmd));
+
+    if (!availableManager) {
+      throw new Error('❌ No package manager found. Please install pnpm, npm, yarn, or bun.');
     }
-    console.log('Dependencies installed successfully!');
+
+    console.info(`⚡ Using ${availableManager} to install dependencies...`);
+    execSync(`${availableManager} install`, { stdio: 'inherit', cwd: projectPath });
+
+    console.info('✅ Dependencies installed successfully!');
   } catch (err) {
-    console.error('Failed to install dependencies:', err);
+    console.error('❌ Failed to install dependencies:', err.message);
     process.exit(1);
   }
 }
 
+/**
+ * Checks if a command exists in the system PATH.
+ * @param {string} cmd - The command to check.
+ * @returns {boolean} - Returns true if the command exists, false otherwise.
+ */
 function commandExists(cmd) {
   try {
     execSync(`${cmd} --version`, { stdio: 'ignore' });
