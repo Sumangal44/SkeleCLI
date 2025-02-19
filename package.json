@@ -1,6 +1,6 @@
 {
   "name": "skelecli",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A simple CLI to generate a blueprint for a new project",
   "main": "skelecli.js",
   "type": "module",
