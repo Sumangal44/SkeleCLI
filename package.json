@@ -1,6 +1,6 @@
 {
   "name": "skelecli",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A simple CLI to generate a blueprint for a new project",
   "main": "skelecli.js",
   "type": "module",
@@ -40,7 +40,6 @@
     "astro-shadcnui",
     "vue-shadcnui",
     "vite"
-
   ],
   "author": "sumangal karan",
   "license": "MIT",
