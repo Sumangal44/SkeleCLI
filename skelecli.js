@@ -144,7 +144,12 @@ const createProject = async (templateName, projectName) => {
 // 🌟 Run CLI Tool
 (async () => {
   try {
-    checkForUpdates(); // Check for updates before starting
+    const updateAvailable = await checkForUpdates(); // Wait for update check
+    if (updateAvailable) {
+      console.log('🔄 Update completed. Please restart the CLI.');
+      process.exit(0); // Exit after update
+    }
+
     displayWelcomeMessage();
 
     const { projectChoice, projectName } = await askProjectDetails();
