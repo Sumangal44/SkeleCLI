@@ -1,9 +1,11 @@
 import { spawnSync } from 'child_process';
 import { readFileSync } from 'fs';
-import { fileURLToPath } from 'url';
+import { createRequire } from 'module';
 import inquirer from 'inquirer';
 
-const packageJson = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf-8'));
+const require = createRequire(import.meta.url);
+const packageJson = require('./package.json');
+
 const CURRENT_VERSION = packageJson.version;
 const PACKAGE_NAME = packageJson.name;
 
@@ -11,7 +13,13 @@ const PACKAGE_NAME = packageJson.name;
  * Get the latest version of the package from npm
  */
 function getLatestVersion() {
-  const result = spawnSync('npm', ['view', PACKAGE_NAME, 'version'], { encoding: 'utf-8' });
+  const npmPath = findCommand('npm');
+  if (!npmPath) {
+    console.error('❌ NPM is not installed or not in PATH.');
+    return null;
+  }
+
+  const result = spawnSync(npmPath, ['view', PACKAGE_NAME, 'version'], { encoding: 'utf-8' });
 
   if (result.error) {
     console.error('❌ Failed to fetch latest version from npm. Debug Info:', result.error.message);
@@ -86,7 +94,7 @@ function updateCLI() {
 function detectPackageManager() {
   const managers = ['pnpm', 'npm', 'yarn', 'bun'];
   for (const manager of managers) {
-    if (commandExists(manager)) return manager;
+    if (findCommand(manager)) return manager;
   }
   return null;
 }
@@ -104,11 +112,13 @@ function getInstallCommand(manager) {
 }
 
 /**
- * Checks if a command exists on the system.
+ * Finds the absolute path of a command (fixes "spawnSync ENOENT" issue).
  */
-function commandExists(cmd) {
-  const result = spawnSync(cmd, ['--version'], { stdio: 'ignore' });
-  return result.status === 0;
+function findCommand(command) {
+  const result = spawnSync('where', [command], { encoding: 'utf-8' });
+
+  if (result.status !== 0 || !result.stdout) return null;
+  return result.stdout.trim().split('\n')[0];
 }
 
 export default checkForUpdates;
