@@ -1,3 +1,26 @@
+#### v2.2.0
+- What's Changed
+- Feat/Astro by @Sumangal44 in #16
+- ✨ ADD: Initialize Astro project with Tailwind CSS and basic structure by @Sumangal44 in #17
+- 👌 IMPROVE: Update success message for project creation to enhance cla… by @Sumangal44 in #18
+- Full Changelog: v2.1.3...v2.2.0
+#### v2.1.6
+- What's Changed
+- 👌 IMPROVE: Enhance update check in createProject function to handle updates gracefully by @Sumangal44 in #15
+- Full Changelog: v2.0.7...v2.1.6
+#### v2.1.5
+- What's Changed
+- 👌 IMPROVE: Enhance update check in createProject function to handle updates gracefully by @Sumangal44 in #15
+- Full Changelog: v2.0.7...v2.1.5
+
+#### v2.1.4
+- What's Changed
+- 👌 IMPROVE: Enhance update check in createProject function to handle updates gracefully by @Sumangal44 in #15
+- Full Changelog: v2.0.7...v2.1.4
+#### v2.1.3
+- What's Changed
+- 👌 IMPROVE: Enhance update check in createProject function to handle updates gracefully by @Sumangal44 in #15
+- Full Changelog: v2.0.7...v2.1.3
 #### 2.1.2	
 - What's Changed
 - 👌 IMPROVE: Enhance command detection and error handling in checkUpdat… by @Sumangal44 in #14
