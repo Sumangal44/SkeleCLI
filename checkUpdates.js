@@ -1,7 +1,7 @@
 import { spawnSync } from 'child_process';
-import { readFileSync } from 'fs';
 import { createRequire } from 'module';
 import inquirer from 'inquirer';
+import os from 'os';
 
 const require = createRequire(import.meta.url);
 const packageJson = require('./package.json');
@@ -13,11 +13,13 @@ const PACKAGE_NAME = packageJson.name;
  * Get the latest version of the package from npm
  */
 function getLatestVersion() {
-  const npmPath = findCommand('npm');
+  const npmPath = getNpmCommand();
   if (!npmPath) {
     console.error('❌ NPM is not installed or not in PATH.');
     return null;
   }
+
+  console.log(`🔍 Using npm path: ${npmPath}`);
 
   const result = spawnSync(npmPath, ['view', PACKAGE_NAME, 'version'], { encoding: 'utf-8' });
 
@@ -26,8 +28,27 @@ function getLatestVersion() {
     return null;
   }
 
-  const latestVersion = result.stdout?.trim();
-  return latestVersion || null;
+  return result.stdout?.trim() || null;
+}
+
+/**
+ * Get the correct npm command depending on the OS.
+ */
+function getNpmCommand() {
+  if (os.platform() === 'win32') {
+    return findCommand('npm.cmd') || findCommand('npm');
+  }
+  return findCommand('npm');
+}
+
+/**
+ * Finds the absolute path of a command (fixes "spawnSync ENOENT" issue).
+ */
+function findCommand(command) {
+  const result = spawnSync(os.platform() === 'win32' ? 'where' : 'which', [command], { encoding: 'utf-8' });
+
+  if (result.status !== 0 || !result.stdout) return null;
+  return result.stdout.trim().split('\n')[0];
 }
 
 /**
@@ -109,16 +130,6 @@ function getInstallCommand(manager) {
     case 'bun': return `add -g ${PACKAGE_NAME}`;
     default: return `install -g ${PACKAGE_NAME}`;
   }
-}
-
-/**
- * Finds the absolute path of a command (fixes "spawnSync ENOENT" issue).
- */
-function findCommand(command) {
-  const result = spawnSync('where', [command], { encoding: 'utf-8' });
-
-  if (result.status !== 0 || !result.stdout) return null;
-  return result.stdout.trim().split('\n')[0];
 }
 
 export default checkForUpdates;
