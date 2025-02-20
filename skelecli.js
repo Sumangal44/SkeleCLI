@@ -133,7 +133,7 @@ const createProject = async (templateName, projectName) => {
 
   try {
     createDirectoryContents(templatePath, projectPath);
-    console.log(`\n✅ Project ${projectName === '.' ? 'created in current directory' : projectName} successfully!`);
+    console.log(`\n✅ Project ${projectName === '.' ? 'created in current directory' : projectName} created successfully!`);
     installDependencies(projectPath);
   } catch (err) {
     console.error('❌ Error creating project:', err);
