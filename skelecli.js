@@ -137,15 +137,25 @@ const createProject = async (templateName, projectName) => {
     installDependencies(projectPath);
   } catch (err) {
     console.error('❌ Error creating project:', err);
-    process.exit(1);
+    process.exit(0);
   }
 };
 
 // 🌟 Run CLI Tool
 (async () => {
-  checkForUpdates(); // Check for updates before starting
-  displayWelcomeMessage();
-  
-  const { projectChoice, projectName } = await askProjectDetails();
-  await createProject(projectChoice, projectName);
+  try {
+    checkForUpdates(); // Check for updates before starting
+    displayWelcomeMessage();
+
+    const { projectChoice, projectName } = await askProjectDetails();
+    await createProject(projectChoice, projectName);
+  } catch (error) {
+    if (error.message.includes('User force closed the prompt')) {
+      console.log('🚫 Operation canceled by user.');
+      process.exit(0); // ✅ Exit normally without error
+    }
+
+    // console.error('❌ An unexpected error occurred:', error);
+    // process.exit(1); // ❌ Exit with error code for debugging
+  }
 })();
