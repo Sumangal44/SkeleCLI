@@ -154,8 +154,5 @@ const createProject = async (templateName, projectName) => {
       console.log('🚫 Operation canceled by user.');
       process.exit(0); // ✅ Exit normally without error
     }
-
-    // console.error('❌ An unexpected error occurred:', error);
-    // process.exit(1); // ❌ Exit with error code for debugging
   }
 })();
