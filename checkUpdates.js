@@ -1,7 +1,6 @@
-import { spawnSync } from 'child_process';
+import { execSync } from 'child_process';
 import { createRequire } from 'module';
 import inquirer from 'inquirer';
-import os from 'os';
 
 const require = createRequire(import.meta.url);
 const packageJson = require('./package.json');
@@ -9,126 +8,37 @@ const packageJson = require('./package.json');
 const CURRENT_VERSION = packageJson.version;
 const PACKAGE_NAME = packageJson.name;
 
-/**
- * Get the latest version of the package from npm
- */
-function getLatestVersion() {
-  const npmPath = getNpmCommand();
-  if (!npmPath) {
-    console.error('❌ NPM is not installed or not in PATH.');
-    return null;
-  }
-
-  console.log(`🔍 Using npm path: ${npmPath}`);
-
-  const result = spawnSync(npmPath, ['view', PACKAGE_NAME, 'version'], { encoding: 'utf-8' });
-
-  if (result.error) {
-    console.error('❌ Failed to fetch latest version from npm. Debug Info:', result.error.message);
-    return null;
-  }
-
-  return result.stdout?.trim() || null;
-}
-
-/**
- * Get the correct npm command depending on the OS.
- */
-function getNpmCommand() {
-  if (os.platform() === 'win32') {
-    return findCommand('npm.cmd') || findCommand('npm');
-  }
-  return findCommand('npm');
-}
-
-/**
- * Finds the absolute path of a command (fixes "spawnSync ENOENT" issue).
- */
-function findCommand(command) {
-  const result = spawnSync(os.platform() === 'win32' ? 'where' : 'which', [command], { encoding: 'utf-8' });
-
-  if (result.status !== 0 || !result.stdout) return null;
-  return result.stdout.trim().split('\n')[0];
-}
-
-/**
- * Check for updates and prompt the user
- */
 async function checkForUpdates() {
-  console.log('🔍 Checking for updates...');
+  try {
+    const latestVersion = execSync(`npm view ${PACKAGE_NAME} version`, { encoding: 'utf-8' }).trim();
 
-  const latestVersion = getLatestVersion();
+    if (latestVersion !== CURRENT_VERSION) {
+      console.log(`🚀 A new version (${latestVersion}) of ${PACKAGE_NAME} is available!`);
 
-  if (!latestVersion) {
-    console.error('❌ Unable to check for updates. Ensure you have an active internet connection.');
-    return;
-  }
+      const { update } = await inquirer.prompt([
+        {
+          type: 'confirm',
+          name: 'update',
+          message: 'Would you like to update now?',
+          default: true,
+        }
+      ]);
 
-  if (latestVersion !== CURRENT_VERSION) {
-    console.log(`🚀 A new version (${latestVersion}) of ${PACKAGE_NAME} is available!`);
-
-    const { update } = await inquirer.prompt([
-      {
-        type: 'confirm',
-        name: 'update',
-        message: 'Would you like to update now?',
-        default: true,
+      if (update) {
+        console.log('🔄 Updating...');
+        try {
+          execSync(`npx pnpm add -g ${PACKAGE_NAME}`, { stdio: 'inherit' });
+          console.log('✅ Update complete! Restart the CLI to use the latest version.');
+          process.exit(0);
+        } catch (updateError) {
+          console.error('❌ Update failed:', updateError.message);
+        }
       }
-    ]);
-
-    if (update) {
-      return updateCLI();
+    } else {
+      console.log('✅ You are using the latest version.');
     }
-  } else {
-    console.log('✅ You are using the latest version.');
-  }
-}
-
-/**
- * Update the CLI
- */
-function updateCLI() {
-  console.log('🔄 Updating...');
-
-  const packageManager = detectPackageManager();
-  if (!packageManager) {
-    console.error('❌ No package manager found. Install npm, pnpm, yarn, or bun.');
-    return;
-  }
-
-  const installCommand = getInstallCommand(packageManager);
-  console.log(`⚡ Running: ${packageManager} ${installCommand}`);
-
-  const updateResult = spawnSync(packageManager, installCommand.split(' '), { stdio: 'inherit' });
-
-  if (updateResult.status === 0) {
-    console.log('✅ Update complete! Restart the CLI to use the latest version.');
-    process.exit(0);
-  } else {
-    console.error('❌ Update failed. Try running the update command manually.');
-  }
-}
-
-/**
- * Detects the available package manager
- */
-function detectPackageManager() {
-  const managers = ['pnpm', 'npm', 'yarn', 'bun'];
-  for (const manager of managers) {
-    if (findCommand(manager)) return manager;
-  }
-  return null;
-}
-
-/**
- * Returns the correct install command for the given package manager
- */
-function getInstallCommand(manager) {
-  switch (manager) {
-    case 'pnpm': return `add -g ${PACKAGE_NAME}`;
-    case 'yarn': return `global add ${PACKAGE_NAME}`;
-    case 'bun': return `add -g ${PACKAGE_NAME}`;
-    default: return `install -g ${PACKAGE_NAME}`;
+  } catch (error) {
+    console.error('❌ Error checking for updates:', error.message);
   }
 }
 
