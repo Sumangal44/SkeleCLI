@@ -22,6 +22,7 @@ npm install -g skelecli
 ## Features
 - react+Tailwind  template
 - react+Tailwindcss+Typescript template
+- Astro+Tailwindcss+Typescript template 
 
 ## License
 - [MIT](./LICENSE)
