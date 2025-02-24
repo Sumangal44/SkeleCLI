@@ -47,6 +47,6 @@
   "dependencies": {
     "conwelcome": "^0.1.6",
     "inquirer": "^12.4.2",
-    "prettier": "^3.5.1"
+    "prettier": "^3.5.2"
   }
 }
