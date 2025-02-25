@@ -43,9 +43,9 @@ const getTemplateChoices = () => {
  */
 const displayWelcomeMessage = () => {
   welcome({
-    title: PACKAGE_NAME,
-    tagLine: 'by Sumangal Karan',
-    description: '❤️🚀👍 SkeleCLI is the best CLI tool for creating new projects! 👨‍🏭✅🚀',
+    title:`🔥 ${PACKAGE_NAME} 🔥`,
+    tagLine: 'by Sumangal Karan 💻',
+    description: '❤️🚀 SkeleCLI is the best CLI tool for creating new projects! 🎯✨',
     bgColor: '#fadc5e',
     color: '#000000',
     bold: true,
@@ -63,15 +63,15 @@ const askProjectDetails = async () => {
     {
       name: 'projectChoice',
       type: 'list',
-      message: 'What project template would you like to generate?',
+      message: '📂 What project template would you like to generate?',
       choices: getTemplateChoices(),
     },
     {
       name: 'projectName',
       type: 'input',
-      message: 'Enter a project name:',
+      message: '📝 Enter a project name:',
       validate: input =>
-        /^([A-Za-z\-\_\d\.])+$/.test(input) || 'Project name may only include letters, numbers, underscores, and dashes.',
+        /^([A-Za-z\-\_\d\.])+$/.test(input) || '❌ Project name may only include letters, numbers, underscores, and dashes.',
     },
   ]);
 };
@@ -110,6 +110,22 @@ const handleExistingProject = async (projectPath) => {
   console.log('🚫 Operation canceled.');
   process.exit(0);
 };
+/**
+ * Asks user whether to install dependencies automatically.
+ * @returns {Promise<boolean>} Whether to install dependencies.
+ */
+const askInstallDependencies = async () => {
+  const { install } = await inquirer.prompt([
+    {
+      name: 'install',
+      type: 'confirm',
+      message: '📦 Do you want to install dependencies automatically?',
+      default: true, // Default to Yes
+    },
+  ]);
+
+  return install;
+};
 
 /**
  * Creates the project from the selected template.
@@ -121,7 +137,7 @@ const createProject = async (templateName, projectName) => {
   const projectPath = projectName === '.' ? CURR_DIR : path.join(CURR_DIR, projectName);
 
   if (!fs.existsSync(templatePath)) {
-    console.error('❌ Selected template does not exist. Please check your templates folder.');
+    console.error('❌ Selected template does not exist. Please check your 📁 templates folder.');
     process.exit(0);
   }
 
@@ -134,16 +150,29 @@ const createProject = async (templateName, projectName) => {
   try {
     createDirectoryContents(templatePath, projectPath);
     console.log(`\n✅ Project ${projectName === '.' ? 'created in current directory' : projectName} created successfully!`);
-    installDependencies(projectPath);
+    const installDeps = await askInstallDependencies();
+
+    if (installDeps) {
+      console.log('📦 Installing dependencies... ⏳ ');
+      installDependencies(projectPath);
+    } else {
+      console.log(`\n📌 To install dependencies manually, run:\n`);
+      console.log(`  📂 cd ${projectName}\n`);
+      console.log(`  🚀  pnpm  install\n`);
+      console.log(`  🚀  bun install\n`);
+      console.log(`  🚀  npm install\n`);
+      console.log(`  🚀  yarn install\n`);
+    }
   } catch (err) {
     console.error('❌ Error creating project:', err);
     process.exit(0);
   }
-};
+};  
 
 // 🌟 Run CLI Tool
 (async () => {
   try {
+    console.log('🔍 Checking for updates... ⏳');
     const updateAvailable = await checkForUpdates(); // Wait for update check
     if (updateAvailable) {
       console.log('🔄 Update completed. Please restart the CLI.');
