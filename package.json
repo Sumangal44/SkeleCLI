@@ -41,12 +41,24 @@
     "vue-shadcnui",
     "vite"
   ],
-  "author": "sumangal karan",
+  "author": {
+		"name": "sumangal karan",
+		"email": "sumangalkaran44@gmail.com",
+    "url": "https://github.com/sumangal44"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sumangal44/SkeleCLI.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sumangal44/SkeleCLI/issues"
+  },
   "packageManager": "pnpm@10.5.0",
   "dependencies": {
     "conwelcome": "^0.1.6",
     "inquirer": "^12.4.2",
     "prettier": "^3.5.2"
   }
+
 }

@@ -2,6 +2,9 @@
 
 A simple CLI to generate a Template  for a new project
 
+# Getting Started
+- [Skelecli.dev](https://skelecli-dev.vercel.app/)
+
 ## Usage
 
 ```bash
@@ -23,6 +26,8 @@ npm install -g skelecli
 - react+Tailwind  template
 - react+Tailwindcss+Typescript template
 - Astro+Tailwindcss+Typescript template 
+- Next+Ts+Tailwindcss+ShadcnUI template
+- Astro+Ts+Tailwindcss+ShadcnUI template
 
 ## License
 - [MIT](./LICENSE)
