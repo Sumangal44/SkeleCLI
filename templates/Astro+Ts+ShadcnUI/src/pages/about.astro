@@ -1,0 +1,81 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Buttoncard from '@/components/Button';
+---
+
+<Layout title="DevSumangal - About">
+  <div class="container px-4 md:px-6">
+    <section class="flex flex-col gap-4 py-8 md:py-12 lg:py-16">
+      <div class="flex flex-col gap-2 max-w-[980px]">
+        <h1 class="text-3xl font-bold leading-tight tracking-tighter md:text-4xl lg:text-5xl">
+          About Me
+        </h1>
+        <p class="max-w-[700px] text-base sm:text-lg text-muted-foreground">
+          I'm a passionate web developer with experience in modern web technologies. 
+          I love creating responsive and user-friendly web applications that solve real-world problems.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-8 md:py-12 lg:py-16">
+      <div class="grid gap-8 md:grid-cols-2">
+        <div>
+          <h2 class="text-2xl font-bold mb-4">My Skills</h2>
+          <ul class="space-y-2 text-muted-foreground">
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              HTML, CSS, and JavaScript
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              React and Next.js
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              Node.js and Express
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              MongoDB and SQL databases
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              Responsive design and Tailwind CSS
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold mb-4">My Journey</h2>
+          <p class="mb-4 text-muted-foreground">
+            I started my journey as a web developer 5 years ago, and since then, I've been constantly learning and improving my skills. 
+            I've worked on various projects, from small business websites to large-scale web applications.
+          </p>
+          <p class="mb-4 text-muted-foreground">
+            When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, 
+            or enjoying a good book on software development.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-8 md:py-12 lg:py-16">
+      <h2 class="text-2xl font-bold mb-4">Let's Connect</h2>
+      <p class="mb-6 text-muted-foreground">
+        I'm always open to new opportunities and collaborations. Whether you have a project in mind or just want to chat about web development, I'd love to hear from you!
+      </p>
+      <Buttoncard tag="Get in Touch" link="/contact" vari="default" />
+
+    </section>
+  </div>
+</Layout>
+
