@@ -1,0 +1,42 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import '../styles/globals.css';
+
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Developer Portfolio">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<ViewTransitions />
+	</head>
+	<body class="min-h-screen w-full bg-background font-sans antialiased">
+		<div class="relative flex min-h-screen flex-col max-h-[400px] overflow-y-auto
+  [&::-webkit-scrollbar]:w-2
+  [&::-webkit-scrollbar-track]:rounded-full
+  [&::-webkit-scrollbar-track]:bg-gray-100
+  [&::-webkit-scrollbar-thumb]:rounded-full
+  [&::-webkit-scrollbar-thumb]:bg-gray-300
+  dark:[&::-webkit-scrollbar-track]:bg-neutral-700
+  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
+			<Header client:load />
+			<main class="flex-1">
+				<slot />
+			</main>
+			<Footer />
+		</div>
+	</body>
+</html>
+

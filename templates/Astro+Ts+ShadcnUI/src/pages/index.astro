@@ -1,0 +1,22 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Buttoncard from '@/components/Button';
+---
+
+<Layout title="Astro+Ts+ShadcnUI">
+  <div class="h-screen container px-4 md:px-6 flex flex-col justify-center lg:items-center">
+    <section class="flex flex-col md:flex-row gap-8 py-8 md:py-12 lg:py-16 items-center">
+      <div class="flex flex-col gap-4 max-w-[600px] items-center text-center">
+        <h1 class="text-xl font-bold leading-tight tracking-tighter md:text-4xl lg:text-5xl">
+          Astro+Ts+ShadcnUI Starter
+        </h1>
+        <p class="w-full text-base sm:text-sm text-muted-foreground">
+          An easy Astro TypeScript starter with ShadCN UI.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 mt-2">
+          <Buttoncard tag="Get Started" link="https://astro.build/" vari="default" />
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
