@@ -42,8 +42,8 @@
     "vite"
   ],
   "author": {
-		"name": "sumangal karan",
-		"email": "sumangalkaran44@gmail.com",
+    "name": "sumangal karan",
+    "email": "sumangalkaran44@gmail.com",
     "url": "https://github.com/sumangal44"
   },
   "license": "MIT",
@@ -56,9 +56,8 @@
   },
   "packageManager": "pnpm@10.5.0",
   "dependencies": {
-    "conwelcome": "^0.1.6",
+    "conwelcome": "^0.1.7",
     "inquirer": "^12.4.2",
     "prettier": "^3.5.2"
   }
-
 }

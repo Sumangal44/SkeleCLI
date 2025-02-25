@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       conwelcome:
-        specifier: ^0.1.6
-        version: 0.1.6
+        specifier: ^0.1.7
+        version: 0.1.7
       inquirer:
         specifier: ^12.4.2
         version: 12.4.2
@@ -174,8 +174,8 @@ packages:
   conclean@0.2.5:
     resolution: {integrity: sha512-0nghD/ZormeXBQ6wuUabvzSB9SgX6E/jaZXXhoN7M/tctsaeFQx+rTQk9+BFlNop3JArlroZRSTQ+CUY4hss/Q==}
 
-  conwelcome@0.1.6:
-    resolution: {integrity: sha512-2VjhgVwY9pu/D4iZMLJx6ROjtHfnNOm6QZAFg3rL4UWsKkAzvkqAop7uCgFUeaQKSY0VytwFBH/nsHiabaAs9Q==}
+  conwelcome@0.1.7:
+    resolution: {integrity: sha512-QZTa4GIwcIcaCrf7SvlXNYbbVtQLz79DjTXKy868OwjLddmcG50LvgS3K99tiDHx6fpz0SBdPVPw5QWI1wAGVQ==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -371,7 +371,7 @@ snapshots:
 
   conclean@0.2.5: {}
 
-  conwelcome@0.1.6:
+  conwelcome@0.1.7:
     dependencies:
       chalk: 5.4.1
       conclean: 0.2.5
