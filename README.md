@@ -28,6 +28,7 @@ npm install -g skelecli
 - Astro+Tailwindcss+Typescript template 
 - Next+Ts+Tailwindcss+ShadcnUI template
 - Astro+Ts+Tailwindcss+ShadcnUI template
+- React+Ts+ShadcnUI template
 
 ## License
 - [MIT](./LICENSE)
