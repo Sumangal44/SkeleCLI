@@ -13,7 +13,7 @@ importers:
         version: 0.1.7
       inquirer:
         specifier: ^12.4.2
-        version: 12.8.0
+        version: 12.8.2
       prettier:
         specifier: ^3.5.3
         version: 3.6.2
@@ -96,8 +96,8 @@ packages:
       '@types/node':
         optional: true
 
-  '@inquirer/prompts@7.7.0':
-    resolution: {integrity: sha512-8/7fOJA/Q5qqxznIvYjEvUCeRE6pncc1OHEmeA5JdNIKfOBC3a0EE5lFBofTWK/WXKfsjMkIz28y/uL6A3frYA==}
+  '@inquirer/prompts@7.7.1':
+    resolution: {integrity: sha512-XDxPrEWeWUBy8scAXzXuFY45r/q49R0g72bUzgQXZ1DY/xEFX+ESDMkTQolcb5jRBzaNJX2W8XQl6krMNDTjaA==}
     engines: {node: '>=18'}
     peerDependencies:
       '@types/node': '>=18'
@@ -123,8 +123,8 @@ packages:
       '@types/node':
         optional: true
 
-  '@inquirer/select@4.3.0':
-    resolution: {integrity: sha512-dY4sPBAfGH6Cv435gOSbNbMsLd6v1ItNmhjsLY+LTY4h8L+SAOERL2L/VtvjZFSVpVcY4dcu8fo6Uq8H8vNvzQ==}
+  '@inquirer/select@4.3.1':
+    resolution: {integrity: sha512-Gfl/5sqOF5vS/LIrSndFgOh7jgoe0UXEizDqahFRkq5aJBLegZ6WjuMh/hVEJwlFQjyLq1z9fRtvUMkb7jM1LA==}
     engines: {node: '>=18'}
     peerDependencies:
       '@types/node': '>=18'
@@ -140,46 +140,6 @@ packages:
     peerDependenciesMeta:
       '@types/node':
         optional: true
-
-  '@oxlint/darwin-arm64@1.7.0':
-    resolution: {integrity: sha512-51vhCSQO4NSkedwEwOyqThiYqV0DAUkwNdqMQK0d29j5zmtNJJJRRBLeQuLGdstNmn3F7WMQ75Ci0/3Nq4ff8A==}
-    cpu: [arm64]
-    os: [darwin]
-
-  '@oxlint/darwin-x64@1.7.0':
-    resolution: {integrity: sha512-c0GN52yehYZ4TYuh4lBH9wYbBOI/RDOxZhJdBsttG0GwfvKYg/tiPNrNEsPzu0/rd1j6x3yT0zt6vezDMeC1sQ==}
-    cpu: [x64]
-    os: [darwin]
-
-  '@oxlint/linux-arm64-gnu@1.7.0':
-    resolution: {integrity: sha512-pam/lbzbzVMDzc3f1hoRPtnUMEIqkn0dynlB5nUll/MVBSIvIPLS9kJLrRA48lrlqbkS9LGiF37JvpwXA58A9A==}
-    cpu: [arm64]
-    os: [linux]
-
-  '@oxlint/linux-arm64-musl@1.7.0':
-    resolution: {integrity: sha512-LTyPy9FYS3SZ2XxJx+ITvlAq/ek5PtZK9Z2m3W72TA8hchGhJy5eQ+aotYjd/YVXOpGRpB12RdOpOTsZRu50bA==}
-    cpu: [arm64]
-    os: [linux]
-
-  '@oxlint/linux-x64-gnu@1.7.0':
-    resolution: {integrity: sha512-YtZ4DiAgjaEiqUiwnvtJ/znZMAAVPKR7pnsi6lqbA3BfXJ/IwMaNpdoGlCGVdDGeN4BuGCwnFtBVqKVvVg3DDg==}
-    cpu: [x64]
-    os: [linux]
-
-  '@oxlint/linux-x64-musl@1.7.0':
-    resolution: {integrity: sha512-5aIpemNUBvwMMk4MCx1V3M6R9eMB1/SS6/24Orax9FqaI1lDX08tySdv696sr4Lms9ocA+rotxIPW9NP9439vA==}
-    cpu: [x64]
-    os: [linux]
-
-  '@oxlint/win32-arm64@1.7.0':
-    resolution: {integrity: sha512-fpFpkHwbAu0NcR5bc1WapCPcM9qSYi5lCRVOp1WwDoFLKI2b9/UWB8OEg8UHWV5dnBu7HZAWH/SEslYGkZNsbQ==}
-    cpu: [arm64]
-    os: [win32]
-
-  '@oxlint/win32-x64@1.7.0':
-    resolution: {integrity: sha512-0EPWBWOiD3wZHgeWDlTUaiFzhzIonXykxYUC+NRerPQFkO/G+bd9uLMJddHDKqfP/7g8s3E5V6KvBvvFpb7U6g==}
-    cpu: [x64]
-    os: [win32]
 
   ansi-escapes@4.3.2:
     resolution: {integrity: sha512-gKXj5ALrKWQLsYG9jlTRmR/xKluxHV+Z9QEwNIgCfM1/uwPMCuzVVnh5mwTd+OuBZcwSIMbqssNWRm1lE51QaQ==}
@@ -228,8 +188,8 @@ packages:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
     engines: {node: '>=0.10.0'}
 
-  inquirer@12.8.0:
-    resolution: {integrity: sha512-gPBPq0MpYIBxYFNbJqvoYGw/n8sgmsgmN36MSQn0yocCnCg09cFlFLLd9CZ13zdAm6S8en4nttMbuD1UjWjW4Q==}
+  inquirer@12.8.2:
+    resolution: {integrity: sha512-oBDL9f4+cDambZVJdfJu2M5JQfvaug9lbo6fKDlFV40i8t3FGA1Db67ov5Hp5DInG4zmXhHWTSnlXBntnJ7GMA==}
     engines: {node: '>=18'}
     peerDependencies:
       '@types/node': '>=18'
@@ -249,18 +209,13 @@ packages:
     resolution: {integrity: sha512-D2FR03Vir7FIu45XBY20mTb+/ZSWB00sjU9jdQXt83gDrI4Ztz5Fs7/yy74g2N5SVQY4xY1qDr4rNddwYRVX0g==}
     engines: {node: '>=0.10.0'}
 
-  oxlint@1.7.0:
-    resolution: {integrity: sha512-krJN1fIRhs3xK1FyVyPtYIV9tkT4WDoIwI7eiMEKBuCjxqjQt5ZemQm1htPvHqNDOaWFRFt4btcwFdU8bbwgvA==}
-    engines: {node: '>=8.*'}
-    hasBin: true
-
   prettier@3.6.2:
     resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
     engines: {node: '>=14'}
     hasBin: true
 
-  run-async@4.0.4:
-    resolution: {integrity: sha512-2cgeRHnV11lSXBEhq7sN7a5UVjTKm9JTb9x8ApIT//16D7QL96AgnNeWSGoB4gIHc0iYw/Ha0Z+waBaCYZVNhg==}
+  run-async@4.0.5:
+    resolution: {integrity: sha512-oN9GTgxUNDBumHTTDmQ8dep6VIJbgj9S3dPP+9XylVLIK4xB9XTXtKWROd5pnhdXR9k0EgO1JRcNh0T+Ny2FsA==}
     engines: {node: '>=0.12.0'}
 
   rxjs@7.8.2:
@@ -356,7 +311,7 @@ snapshots:
       '@inquirer/type': 3.0.8
       ansi-escapes: 4.3.2
 
-  '@inquirer/prompts@7.7.0':
+  '@inquirer/prompts@7.7.1':
     dependencies:
       '@inquirer/checkbox': 4.2.0
       '@inquirer/confirm': 5.1.14
@@ -367,7 +322,7 @@ snapshots:
       '@inquirer/password': 4.0.17
       '@inquirer/rawlist': 4.1.5
       '@inquirer/search': 3.0.17
-      '@inquirer/select': 4.3.0
+      '@inquirer/select': 4.3.1
 
   '@inquirer/rawlist@4.1.5':
     dependencies:
@@ -382,7 +337,7 @@ snapshots:
       '@inquirer/type': 3.0.8
       yoctocolors-cjs: 2.1.2
 
-  '@inquirer/select@4.3.0':
+  '@inquirer/select@4.3.1':
     dependencies:
       '@inquirer/core': 10.1.15
       '@inquirer/figures': 1.0.13
@@ -391,30 +346,6 @@ snapshots:
       yoctocolors-cjs: 2.1.2
 
   '@inquirer/type@3.0.8': {}
-
-  '@oxlint/darwin-arm64@1.7.0':
-    optional: true
-
-  '@oxlint/darwin-x64@1.7.0':
-    optional: true
-
-  '@oxlint/linux-arm64-gnu@1.7.0':
-    optional: true
-
-  '@oxlint/linux-arm64-musl@1.7.0':
-    optional: true
-
-  '@oxlint/linux-x64-gnu@1.7.0':
-    optional: true
-
-  '@oxlint/linux-x64-musl@1.7.0':
-    optional: true
-
-  '@oxlint/win32-arm64@1.7.0':
-    optional: true
-
-  '@oxlint/win32-x64@1.7.0':
-    optional: true
 
   ansi-escapes@4.3.2:
     dependencies:
@@ -457,14 +388,14 @@ snapshots:
     dependencies:
       safer-buffer: 2.1.2
 
-  inquirer@12.8.0:
+  inquirer@12.8.2:
     dependencies:
       '@inquirer/core': 10.1.15
-      '@inquirer/prompts': 7.7.0
+      '@inquirer/prompts': 7.7.1
       '@inquirer/type': 3.0.8
       ansi-escapes: 4.3.2
       mute-stream: 2.0.0
-      run-async: 4.0.4
+      run-async: 4.0.5
       rxjs: 7.8.2
 
   is-fullwidth-code-point@3.0.0: {}
@@ -473,23 +404,9 @@ snapshots:
 
   os-tmpdir@1.0.2: {}
 
-  oxlint@1.7.0:
-    optionalDependencies:
-      '@oxlint/darwin-arm64': 1.7.0
-      '@oxlint/darwin-x64': 1.7.0
-      '@oxlint/linux-arm64-gnu': 1.7.0
-      '@oxlint/linux-arm64-musl': 1.7.0
-      '@oxlint/linux-x64-gnu': 1.7.0
-      '@oxlint/linux-x64-musl': 1.7.0
-      '@oxlint/win32-arm64': 1.7.0
-      '@oxlint/win32-x64': 1.7.0
-
   prettier@3.6.2: {}
 
-  run-async@4.0.4:
-    dependencies:
-      oxlint: 1.7.0
-      prettier: 3.6.2
+  run-async@4.0.5: {}
 
   rxjs@7.8.2:
     dependencies:
