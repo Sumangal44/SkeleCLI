@@ -16,7 +16,7 @@ importers:
         version: 13.1.0(@types/node@24.2.1)
       prettier:
         specifier: ^3.5.3
-        version: 3.7.4
+        version: 3.8.0
 
 packages:
 
@@ -206,8 +206,8 @@ packages:
     resolution: {integrity: sha512-dkEJPVvun4FryqBmZ5KhDo0K9iDXAwn08tMLDinNdRBNPcYEDiWYysLcc6k3mjTMlbP9KyylvRpd4wFtwrT9rw==}
     engines: {node: ^20.17.0 || >=22.9.0}
 
-  prettier@3.7.4:
-    resolution: {integrity: sha512-v6UNi1+3hSlVvv8fSaoUbggEM5VErKmmpGA7Pl3HF8V6uKY7rvClBOJlH6yNwQtfTueNkGVpOv/mtWL9L4bgRA==}
+  prettier@3.8.0:
+    resolution: {integrity: sha512-yEPsovQfpxYfgWNhCfECjG5AQaO+K3dp6XERmOepyPDVqcJm+bjyCVO3pmU+nAPe0N5dDvekfGezt/EIiRe1TA==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -408,7 +408,7 @@ snapshots:
 
   mute-stream@3.0.0: {}
 
-  prettier@3.7.4: {}
+  prettier@3.8.0: {}
 
   run-async@4.0.6: {}
 
